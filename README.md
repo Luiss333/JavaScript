@@ -145,3 +145,5 @@ const aceptar = confirm('¿Estás seguro?');
 ```
 
 > *No se usan en producción, solo para pruebas.*
+
+### Retomando curso...
