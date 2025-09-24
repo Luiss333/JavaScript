@@ -1,4 +1,3 @@
-
 # Apuntes: Curso de JavaScript Moderno - Fernando Herrera
 
 ## Secciones iniciales
@@ -8,11 +7,11 @@
 ### 1. JavaScript y su historia
 
 - JavaScript fue creado en 1995 por **Brendan Eich**.
-- Nombres previos: *Mocha*, *LiveScript*, y finalmente *JavaScript*.
+- Nombres previos: _Mocha_, _LiveScript_, y finalmente _JavaScript_.
 - No es lo mismo que Java.
 - **ES6 (ECMAScript 2015)** trajo mejoras como `let`, `const`, arrow functions, clases.
 
-> *JS se ha convertido en un lenguaje de propósito general.*
+> _JS se ha convertido en un lenguaje de propósito general._
 
 ---
 
@@ -24,7 +23,7 @@
 - **Escritorio:** con **Electron**.
 - **IoT:** con placas como Raspberry Pi.
 
-> *Uno de los lenguajes más demandados.*
+> _Uno de los lenguajes más demandados._
 
 ---
 
@@ -34,13 +33,13 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Hola Mundo JS</title>
   </head>
   <body>
     <h1>Hola Mundo</h1>
     <script>
-      console.log('Hola Mundo');
+      console.log("Hola Mundo");
     </script>
   </body>
 </html>
@@ -63,29 +62,29 @@
 #### Variables
 
 ```js
-let nombre = 'Luis';
+let nombre = "Luis";
 const PI = 3.1416;
 ```
 
 - `let`: variable que puede cambiar.
 - `const`: valor fijo.
 
-> *Usar `const` por defecto y `let` si cambiará.*
+> _Usar `const` por defecto y `let` si cambiará._
 
 ---
 
 ### 5. Consola
 
 ```js
-console.log('Mensaje');
-console.warn('Advertencia');
-console.error('Error');
-console.info('Información');
-console.table([1,2,3]);
-console.log({nombre: 'Luis'});
+console.log("Mensaje");
+console.warn("Advertencia");
+console.error("Error");
+console.info("Información");
+console.table([1, 2, 3]);
+console.log({ nombre: "Luis" });
 ```
 
-> *Ideal para depurar y visualizar datos.*
+> _Ideal para depurar y visualizar datos._
 
 ---
 
@@ -117,7 +116,7 @@ x += 5;
 <script src="app.js" defer></script>
 ```
 
-> *No usar scripts en el `<head>` sin `defer`.*
+> _No usar scripts en el `<head>` sin `defer`._
 
 ---
 
@@ -139,11 +138,77 @@ console.log(x); // 10
 ### 9. Prompt, Confirm y Alert
 
 ```js
-alert('Hola mundo');
-const nombre = prompt('¿Cuál es tu nombre?');
-const aceptar = confirm('¿Estás seguro?');
+alert("Hola mundo");
+const nombre = prompt("¿Cuál es tu nombre?");
+const aceptar = confirm("¿Estás seguro?");
 ```
 
-> *No se usan en producción, solo para pruebas.*
+> _No se usan en producción, solo para pruebas._
 
 ### Retomando curso...
+
+Manipulacion del DOM
+
+document.querySelector('')
+
+document.querySelectorAll('')
+
+document.querySelector('').innerText = ''
+
+document.querySelector('').innerHTML = ''
+
+document.getElementByID('')
+
+document.querySelector('#')
+
+document.getElementByClassName('')
+
+document.querySelector('.')
+
+\*Si se usará constantemente se recomienda asignarlo a una variable'
+
+const manipulacion = document.querySelector('')
+
+manipulacion.innerText = ''
+
+Creacion de elementos
+
+Ejemplo:
+
+Como queremos referirnos a una seccion (div) en especifico asignamos este div con un id "divBotones"
+
+como estaremos manipulandolo creamos una constante haciendo referencia a este
+
+const divBotones = document.querySelector('#divBotones');
+
+nos pocisionamos en este div:
+
+la manera de crear un elemento es la siguiente:
+
+document.createElement('');
+
+crearemos un nuevo elemento, pero lo asignaremos a una constante para manipularlo despues haciendo referencia a este:
+
+const botonNuevo = document.createElement('button');
+
+Agregamos este nuevo elemento:
+
+divBotones.append(botonNuevo);
+
+Una vez insertado podemos manipularlo
+
+cambiamos el texto de este
+botonNuevo.innerText = 'Boton Nuevo'
+
+añadiendo clases
+botonNuevo.classList.add('btn');
+botonNuevo.classList.add('btn-success')
+
+ejemplo 2:
+const input = document.createElement('input');
+
+document.body.append(input);
+
+input.classList.add('formcontrol');
+
+input.placeholder = 'Hola Mundo'
