@@ -1,33 +1,38 @@
-# Apuntes: Curso de JavaScript Moderno - Fernando Herrera
+# Curso de JavaScript Moderno — Apuntes
 
-## Secciones iniciales
+**Instructor:** Fernando Herrera
 
----
+## 1. Introducción a JavaScript
 
-### 1. JavaScript y su historia
+### Historia
 
-- JavaScript fue creado en 1995 por **Brendan Eich**.
-- Nombres previos: _Mocha_, _LiveScript_, y finalmente _JavaScript_.
-- No es lo mismo que Java.
-- **ES6 (ECMAScript 2015)** trajo mejoras como `let`, `const`, arrow functions, clases.
+JavaScript fue creado en **1995** por **Brendan Eich**, bajo el nombre original de _Mocha_. Posteriormente fue renombrado a _LiveScript_ y, finalmente, a **JavaScript**.  
+A pesar de su nombre, **JavaScript no está relacionado con Java**.
 
-> _JS se ha convertido en un lenguaje de propósito general._
+En **ES6 (ECMAScript 2015)** se introdujeron mejoras significativas como:
 
----
+- `let` y `const`
+- Arrow functions (`=>`)
+- Clases
+- Módulos
 
-### 2. Usos de JavaScript
-
-- **Front-end:** interacción con el DOM.
-- **Back-end:** usando **Node.js**.
-- **Apps móviles:** con **React Native**.
-- **Escritorio:** con **Electron**.
-- **IoT:** con placas como Raspberry Pi.
-
-> _Uno de los lenguajes más demandados._
+> _Hoy en día, JavaScript es un lenguaje de propósito general, presente tanto en el navegador como en el servidor._
 
 ---
 
-### 3. Hola Mundo
+## 2. Principales Usos de JavaScript
+
+- **Front-end:** Manipulación del DOM e interacción con el usuario.
+- **Back-end:** Mediante **Node.js**.
+- **Aplicaciones móviles:** Con **React Native**.
+- **Aplicaciones de escritorio:** Con **Electron**.
+- **Internet de las cosas (IoT):** Compatible con dispositivos como **Raspberry Pi**.
+
+> _JavaScript es uno de los lenguajes más demandados en la industria tecnológica._
+
+---
+
+## 3. Ejemplo Básico: “Hola Mundo”
 
 ```html
 <!DOCTYPE html>
@@ -45,35 +50,35 @@
 </html>
 ```
 
-- `console.log()` imprime en la consola.
-- Código JS puede ir en `<script>` o archivo externo `.js`.
+- `console.log()` imprime mensajes en la consola del navegador.
+- El código JavaScript puede incluirse en una etiqueta `<script>` o en un archivo externo `.js`.
 
 ---
 
-### 4. Variables y Comentarios
+## 4. Variables y Comentarios
 
-#### Comentarios
+### Comentarios
 
 ```js
 // Comentario de una línea
 /* Comentario de varias líneas */
 ```
 
-#### Variables
+### Variables
 
 ```js
 let nombre = "Luis";
 const PI = 3.1416;
 ```
 
-- `let`: variable que puede cambiar.
-- `const`: valor fijo.
+- `let`: Permite reasignar valores.
+- `const`: Define valores constantes.
 
-> _Usar `const` por defecto y `let` si cambiará._
+> _Se recomienda usar `const` por defecto, y `let` solo si el valor cambiará._
 
 ---
 
-### 5. Consola
+## 5. Consola y Depuración
 
 ```js
 console.log("Mensaje");
@@ -84,14 +89,12 @@ console.table([1, 2, 3]);
 console.log({ nombre: "Luis" });
 ```
 
-> _Ideal para depurar y visualizar datos._
+> _La consola es una herramienta esencial para depuración y visualización de datos._
 
----
+### Uso de Breakpoints
 
-### 6. Depuración y breakpoints
-
-- Usa F12 en el navegador, pestaña "Sources".
-- Usa `debugger;` para pausar ejecución.
+- En el navegador, presiona **F12 → pestaña “Sources”**.
+- También se puede pausar el código con `debugger;`.
 
 ```js
 let x = 10;
@@ -101,26 +104,25 @@ x += 5;
 
 ---
 
-### 7. Importaciones
+## 6. Importación de Scripts
+
+### Forma estándar:
 
 ```html
-<body>
-  ...
-  <script src="app.js"></script>
-</body>
+<script src="app.js"></script>
 ```
 
-- Alternativa con `defer`:
+### Recomendado:
 
 ```html
 <script src="app.js" defer></script>
 ```
 
-> _No usar scripts en el `<head>` sin `defer`._
+> _Evita colocar scripts en el `<head>` sin el atributo `defer`, para no bloquear la carga de la página._
 
 ---
 
-### 8. Problemas con `var`
+## 7. Problemas con `var`
 
 ```js
 if (true) {
@@ -129,13 +131,12 @@ if (true) {
 console.log(x); // 10
 ```
 
-- `var` tiene hoisting y no respeta bloques.
-
-> ✅ Usa `let` o `const`.
+- `var` no respeta el alcance de bloque y presenta **hoisting**.
+  > ✅ Utiliza `let` o `const` en lugar de `var`.
 
 ---
 
-### 9. Prompt, Confirm y Alert
+## 8. Ventanas Emergentes (Alert, Prompt, Confirm)
 
 ```js
 alert("Hola mundo");
@@ -143,72 +144,91 @@ const nombre = prompt("¿Cuál es tu nombre?");
 const aceptar = confirm("¿Estás seguro?");
 ```
 
-> _No se usan en producción, solo para pruebas._
+> _Estas funciones son útiles solo para pruebas, no se recomiendan en entornos de producción._
 
-### Retomando curso...
+---
 
-Manipulacion del DOM
+## 9. Manipulación del DOM
 
-document.querySelector('')
+### Selección de elementos
 
-document.querySelectorAll('')
+```js
+document.querySelector("selector");
+document.querySelectorAll("selector");
+document.getElementById("id");
+document.getElementsByClassName("clase");
+```
 
-document.querySelector('').innerText = ''
+Ejemplo de modificación:
 
-document.querySelector('').innerHTML = ''
+```js
+document.querySelector("h1").innerText = "Nuevo título";
+document.querySelector("#miDiv").innerHTML = "<p>Contenido dinámico</p>";
+```
 
-document.getElementByID('')
+> Si se usará constantemente un mismo elemento, se recomienda guardarlo en una variable:
 
-document.querySelector('#')
+```js
+const elemento = document.querySelector("#miDiv");
+elemento.innerText = "Texto actualizado";
+```
 
-document.getElementByClassName('')
+---
 
-document.querySelector('.')
-
-\*Si se usará constantemente se recomienda asignarlo a una variable'
-
-const manipulacion = document.querySelector('')
-
-manipulacion.innerText = ''
-
-Creacion de elementos
+## 10. Creación Dinámica de Elementos
 
 Ejemplo:
 
-Como queremos referirnos a una seccion (div) en especifico asignamos este div con un id "divBotones"
+```js
+const divBotones = document.querySelector("#divBotones");
+const botonNuevo = document.createElement("button");
 
-como estaremos manipulandolo creamos una constante haciendo referencia a este
-
-const divBotones = document.querySelector('#divBotones');
-
-nos pocisionamos en este div:
-
-la manera de crear un elemento es la siguiente:
-
-document.createElement('');
-
-crearemos un nuevo elemento, pero lo asignaremos a una constante para manipularlo despues haciendo referencia a este:
-
-const botonNuevo = document.createElement('button');
-
-Agregamos este nuevo elemento:
+botonNuevo.innerText = "Botón Nuevo";
+botonNuevo.classList.add("btn", "btn-success");
 
 divBotones.append(botonNuevo);
+```
 
-Una vez insertado podemos manipularlo
+Otro ejemplo con un campo de texto:
 
-cambiamos el texto de este
-botonNuevo.innerText = 'Boton Nuevo'
-
-añadiendo clases
-botonNuevo.classList.add('btn');
-botonNuevo.classList.add('btn-success')
-
-ejemplo 2:
-const input = document.createElement('input');
-
+```js
+const input = document.createElement("input");
 document.body.append(input);
 
-input.classList.add('formcontrol');
+input.classList.add("form-control");
+input.placeholder = "Hola Mundo";
+```
 
-input.placeholder = 'Hola Mundo'
+---
+
+## 11. Funciones Anónimas y Autoejecutables (IIFE)
+
+Permiten ejecutar código de manera aislada sin contaminar el ámbito global:
+
+```js
+(() => {
+  console.log("Función autoejecutable");
+})();
+```
+
+También pueden devolver valores controlados:
+
+```js
+const modulo = (() => {
+  const privado = "Secreto";
+
+  return {
+    publico: "Accesible",
+  };
+})();
+```
+
+---
+
+## 12. Minificación de Código
+
+Para optimizar y proteger el código, se recomienda **minificarlo** mediante herramientas como:
+
+🔗 [https://javascript-minifier.com/](https://javascript-minifier.com/)
+
+---
